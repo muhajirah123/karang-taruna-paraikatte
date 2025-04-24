@@ -520,79 +520,89 @@ $(document).ready(function() {
 
     <!-- Kontak -->
     <!-- Replace your current Kontak Kami section with this -->
-<section id="contact" class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">Kontak Kami</h2>
-        <h3 class="section-subheading text-muted">Silakan menghubungi kami melalui form di bawah ini:</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <form id="contactForm" name="sentMessage" novalidate>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input class="form-control" id="name" type="text" placeholder="Nama *" required>
-                <p class="help-block text-danger"></p>
-              </div>
-              <div class="form-group">
-                <input class="form-control" id="email" type="email" placeholder="Email *" required>
-                <p class="help-block text-danger"></p>
-              </div>
-              <div class="form-group">
-                <input class="form-control" id="phone" type="tel" placeholder="Nomor HP *" required>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <textarea class="form-control" id="message" placeholder="Isi Pesan *" required></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-lg-12 text-center">
-              <div id="success"></div>
-              <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Kirim Pesan</button>
-            </div>
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+      <meta charset="UTF-8">
+      <title>Kontak Kami</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+    
+    <!-- Formulir Kontak -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Kontak Kami</h2>
+            <h3 class="section-subheading text-muted">Silakan menghubungi kami melalui form di bawah ini:</h3>
           </div>
-        </form>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="contactForm" name="sentMessage" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="name" type="text" placeholder="Nama *" required>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="email" type="email" placeholder="Email *" required>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="phone" type="tel" placeholder="Nomor HP *" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <textarea class="form-control" id="message" placeholder="Isi Pesan *" required></textarea>
+                  </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Kirim Pesan</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<script>
-// Contact form submission
-$('#contactForm').submit(function(e) {
-  e.preventDefault();
-  
-  var name = $('#name').val();
-  var email = $('#email').val();
-  var phone = $('#phone').val();
-  var message = $('#message').val();
-  
-  $.ajax({
-    url: 'process_contact.php',
-    type: 'POST',
-    data: {
-      name: name,
-      email: email,
-      phone: phone,
-      message: message
-    },
-    success: function(response) {
-      $('#success').html('<div class="alert alert-success">Pesan berhasil dikirim!</div>');
-      $('#contactForm')[0].reset();
-    },
-    error: function() {
-      $('#success').html('<div class="alert alert-danger">Terjadi kesalahan. Silakan coba lagi.</div>');
-    }
-  });
-});
-</script>
+    </section>
+    
+    <!-- Script Kirim Form -->
+    <script>
+      $('#contactForm').submit(function(e) {
+        e.preventDefault();
+    
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        var message = $('#message').val();
+    
+        $.ajax({
+          url: 'process_contact.php',
+          type: 'POST',
+          data: {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message
+          },
+          success: function(response) {
+            $('#success').html('<div class="alert alert-success">Pesan berhasil dikirim!</div>');
+            $('#contactForm')[0].reset();
+          },
+          error: function() {
+            $('#success').html('<div class="alert alert-danger">Terjadi kesalahan. Silakan coba lagi.</div>');
+          }
+        });
+      });
+    </script>
+    
+    </body>
+    </html>
+    
 
     <!-- Footer -->
     <footer>
@@ -606,7 +616,7 @@ $('#contactForm').submit(function(e) {
           <div class="col-md-4">
             <ul class="list-inline quicklinks">
               <li class="list-inline-item">
-                <a href="https://github.com/rmalan/desa">MAHASISWA UNISMUH PERIODE 2021 | DESA PARAIKATE</a>
+                <a href="https://muhajirah123.github.io/desa/">MAHASISWA UNISMUH PERIODE 2021 | DESA PARAIKATE</a>
               </li>              
             </ul>
           </div>
